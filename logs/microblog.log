@@ -57,3 +57,6 @@ Traceback (most recent call last):
     <a href="{{ url_for('reset_password',token=tokenm _external=True) }}">
 jinja2.exceptions.TemplateSyntaxError: expected token ',', got '_external'
 2020-11-05 21:55:01,141 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:43]
+2020-11-06 02:31:44,577 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:45]
+2020-11-06 02:35:55,944 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:45]
+2020-11-06 03:15:21,714 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:45]
