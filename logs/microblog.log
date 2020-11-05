@@ -1,4 +1,4 @@
-2020-11-05 14:51:50,999 ERROR: Exception on /user/mayank1729 [GET] [in /home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py:1891]
+2020-11-05 21:52:01,820 ERROR: Exception on /reset_password_request [POST] [in /home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,25 +12,48 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/mayank1729/microblog/app/routes.py", line 85, in user
-    return render_template('user.html',user=user, posts=posts,form=form, next_url = next_url, prev_url = prev_url)
-  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
-    return _render(
-  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
+  File "/home/mayank1729/microblog/app/routes.py", line 160, in reset_password_request
+    send_password_reset_email(user)
+  File "/home/mayank1729/microblog/app/email.py", line 17, in send_password_reset_email
+    send_mail('[Microblog] Reset Your Password',sender = app.config['ADMINS'][0],recipients=[user.email],text_body = render_template('email/reset_password.txt',user=user, token=token),html_body=render_template('email/reset_password.html',user=user, token=token))
+NameError: name 'render_template' is not defined
+2020-11-05 21:53:45,758 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:43]
+2020-11-05 21:53:49,955 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:43]
+2020-11-05 21:53:52,236 ERROR: Exception on /reset_password_request [POST] [in /home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mayank1729/microblog/app/routes.py", line 160, in reset_password_request
+    send_password_reset_email(user)
+  File "/home/mayank1729/microblog/app/email.py", line 18, in send_password_reset_email
+    send_mail('[Microblog] Reset Your Password',sender = app.config['ADMINS'][0],recipients=[user.email],text_body = render_template('email/reset_password.txt',user=user, token=token),html_body=render_template('email/reset_password.html',user=user, token=token))
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/jinja2/environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/jinja2/loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/jinja2/environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
   File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
     reraise(*rewrite_traceback_stack(source=source))
   File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "/home/mayank1729/microblog/app/templates/user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/mayank1729/microblog/app/templates/base.html", line 31, in top-level template code
-    {% block content %}{% endblock %}
-  File "/home/mayank1729/microblog/app/templates/user.html", line 32, in block "content"
-    {% for post in posts %}
-TypeError: 'Pagination' object is not iterable
-2020-11-05 14:55:05,156 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
+  File "/home/mayank1729/microblog/app/templates/email/reset_password.html", line 4, in template
+    <a href="{{ url_for('reset_password',token=tokenm _external=True) }}">
+jinja2.exceptions.TemplateSyntaxError: expected token ',', got '_external'
+2020-11-05 21:55:01,141 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:43]
