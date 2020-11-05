@@ -1,15 +1,36 @@
-2020-11-04 12:19:52,430 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 18:24:35,969 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 18:27:16,660 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 18:27:53,059 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 18:28:29,475 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 18:28:46,049 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 20:22:00,356 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 20:26:35,396 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 20:26:51,229 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 20:28:35,232 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 20:34:00,465 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 20:37:48,723 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 20:42:41,115 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 21:33:52,515 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
-2020-11-04 21:34:32,197 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
+2020-11-05 14:51:50,999 ERROR: Exception on /user/mayank1729 [GET] [in /home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/mayank1729/microblog/app/routes.py", line 85, in user
+    return render_template('user.html',user=user, posts=posts,form=form, next_url = next_url, prev_url = prev_url)
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/mayank1729/microblog/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/mayank1729/microblog/app/templates/user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/mayank1729/microblog/app/templates/base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/mayank1729/microblog/app/templates/user.html", line 32, in block "content"
+    {% for post in posts %}
+TypeError: 'Pagination' object is not iterable
+2020-11-05 14:55:05,156 INFO: Microblog startup [in /home/mayank1729/microblog/app/__init__.py:40]
