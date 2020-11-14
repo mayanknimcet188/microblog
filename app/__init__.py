@@ -10,6 +10,8 @@ from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 
+
+
 app = Flask(__name__)
 app.config.from_object(Config)
 login = LoginManager(app)
@@ -19,6 +21,7 @@ migrate = Migrate(app, db)
 mail = Mail(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
+
 
 if not app.debug:
     if app.config['MAIL_SERVER']:
@@ -45,3 +48,7 @@ if not app.debug:
     app.logger.setLevel(logging.INFO)
     app.logger.info('Microblog startup')
 from app import routes, models, errors #importei last due to cyclic dependency
+
+
+
+
